@@ -24,6 +24,14 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
+      - name: Restore state store
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            atomcode_state.json
+          key: atomcode-daily-store-${{ github.run_id }}
+          restore-keys: |
+            atomcode-daily-store-
       - name: Run AtomCode Daily
         env:
           ATOMCODE_TOKENS: ${{ secrets.ATOMCODE_TOKENS }}
@@ -36,3 +44,11 @@ jobs:
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
           DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
         run: python atomcode_daily.py
+
+      - name: Save state store
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            atomcode_state.json
+          key: atomcode-daily-store-${{ github.run_id }}
