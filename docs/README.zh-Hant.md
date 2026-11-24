@@ -8,6 +8,8 @@
 
 [简体中文](../README.md) | [English](README.en.md) | [繁體中文](README.zh-Hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Português (BR)](README.pt-BR.md)
 
+**目前版本：** v1.0.3
+
 <img src="https://img.shields.io/github/v/release/L0NE-6/AtomCode-Daily?style=for-the-badge&label=Release&color=2ea44f&logo=github" />
 <img src="https://img.shields.io/github/stars/L0NE-6/AtomCode-Daily?style=for-the-badge&label=Stars&color=FFC75F&logo=github" />
 <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white" />
@@ -21,7 +23,7 @@
 - 讀取 `status-v2`，有有效方案時不重複領取。
 - 依 `Max → Pro → Lite` 級聯嘗試，命中即停止。
 - 可解析的 `expires_at` 優先於 `remaining_days`，過期方案會重新進入領取流程。
-- 上游回傳 `duplicate: true` 時視為已持有，避免繼續降級。
+- 服務端回傳 `duplicate: true` 時視為已持有，避免繼續降級。
 - access token 過期時自動續期，並保存輪換後的 refresh token。
 - 支援多帳號、代理與 PushPlus、Bark、企業微信、釘釘通知。
 
