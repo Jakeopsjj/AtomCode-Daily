@@ -4,9 +4,11 @@
 
 # AtomCode Daily
 
-**Check the current AtomCode plan and claim a free CodingPlan with a Max → Pro → Lite fallback when no valid plan exists.**
+**Check the current AtomCode plan and claim a free CodingPlan with the Max → Pro → Lite sequence when no valid plan exists.**
 
 [简体中文](../README.md) | [English](README.en.md) | [繁體中文](README.zh-Hant.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Português (BR)](README.pt-BR.md)
+
+**Current version:** v1.0.3
 
 <img src="https://img.shields.io/github/v/release/L0NE-6/AtomCode-Daily?style=for-the-badge&label=Release&color=2ea44f&logo=github" />
 <img src="https://img.shields.io/github/stars/L0NE-6/AtomCode-Daily?style=for-the-badge&label=Stars&color=FFC75F&logo=github" />
@@ -21,7 +23,7 @@
 - Reads the current CodingPlan state from `status-v2`.
 - Treats a plan as active only when its parsed expiry time is still in the future.
 - Claims `Max → Pro → Lite` in order and stops at the first confirmed result.
-- Stops immediately when the upstream returns `duplicate: true`.
+- Stops immediately when the service returns `duplicate: true`.
 - Refreshes access tokens and stores rotated refresh tokens when a writable state path is available.
 - Supports multiple accounts, proxies, and PushPlus, Bark, WeCom, and DingTalk notifications.
 
@@ -85,7 +87,7 @@ Add the required repository secrets:
 | `ATOMCODE_PROXY` | Optional | HTTP(S) or SOCKS proxy |
 | `PLUSPLUS_TOKEN`, `BARK_URL`, `WECOM_WEBHOOK`, `DINGTALK_WEBHOOK` | Optional | Notification channels |
 
-To enable a schedule, uncomment the two schedule lines and remember that GitHub cron uses UTC. The current example is `20 0 * * *`, which is 08:20 in Beijing time. Actions does not persist the local state file; update the refresh-token secret if the upstream rotates it.
+To enable a schedule, uncomment the two schedule lines and remember that GitHub cron uses UTC. The current example is `20 0 * * *`, which is 08:20 in Beijing time. Actions does not persist the local state file; update the refresh-token secret if the service rotates it.
 
 ## 🔧 Key environment variables
 
